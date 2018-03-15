@@ -1,4 +1,4 @@
-import java.util.List;
+import  java.util.ArrayList;
 
 
 public class Assessment {
@@ -22,8 +22,38 @@ public class Assessment {
         return ((double) sum) / array.length;
     }
 
-    public static void capitalizeRecords(List<User> u) {
-//
+    public static ArrayList<User> capitalizeRecords(ArrayList<User> users) {
+
+        ArrayList<User> usersCopy = new ArrayList<>();
+
+        for (User user : users) {
+            usersCopy.add(new User(user.getFirstName(), user.getLastName(), user.isAdmin()));
+        }
+
+        for(User user : usersCopy) {
+
+            String firstName = user.getFirstName();
+            String lastName = user.getLastName();
+            String pattern = "[a-z].*";
+
+            if (firstName.matches(pattern)) {
+                firstName = capitalizeName(firstName);
+                user.setFirstName(firstName);
+            }
+
+            if (lastName.matches(pattern)) {
+                lastName = capitalizeName(lastName);
+                user.setLastName(lastName);
+            }
+
+        }
+
+        return usersCopy;
+
+    }
+
+    public static String capitalizeName(String nameToCapitalize) {
+        return nameToCapitalize.toUpperCase().charAt(0) + nameToCapitalize.substring(1).toLowerCase();
     }
 
 

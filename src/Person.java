@@ -28,6 +28,10 @@ public class Person implements Greeter {
         this.lastName = lastName;
     }
 
+    public String sayHello() {
+        return "Hello" + this.firstName + " " + this.lastName;
+    }
+
     public static void main(String[] args) {
         Person p = new Person("Allie", "Scott");
 

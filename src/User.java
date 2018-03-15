@@ -12,10 +12,6 @@ public class User extends Person {
     }
 
     public boolean isAdmin() {
-        if (isAdmin) {
-            return true;
-        } else {
-            return false;
-        }
+        return isAdmin;
     }
 }
